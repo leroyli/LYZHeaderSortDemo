@@ -1,4 +1,4 @@
 # LYZHeaderSortDemo
 A HeaderSortView that could show selected Status and unSelected Status
 
-![img](http://github.com/leroyli/LYZHeaderSortDemo/raw/master/images/ScreenShot.png)
+![img](https://github.com/leroyli/LYZHeaderSortDemo/blob/master/images/ScreenShot.png)
