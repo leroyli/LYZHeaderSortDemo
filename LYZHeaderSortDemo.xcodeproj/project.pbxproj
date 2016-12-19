@@ -17,6 +17,7 @@
 		AE27A9F91E07827D009DFD80 /* LYZHeaderSortDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE27A9F81E07827D009DFD80 /* LYZHeaderSortDemoUITests.m */; };
 		AE27AA091E0782BE009DFD80 /* HeadSortView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE27AA081E0782BE009DFD80 /* HeadSortView.m */; };
 		AE27AA0D1E079895009DFD80 /* ScreenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = AE27AA0C1E079895009DFD80 /* ScreenShot.png */; };
+		AE27AA101E0799B4009DFD80 /* ScreenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = AE27AA0F1E0799B4009DFD80 /* ScreenShot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		AE27AA071E0782BE009DFD80 /* HeadSortView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadSortView.h; sourceTree = "<group>"; };
 		AE27AA081E0782BE009DFD80 /* HeadSortView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadSortView.m; sourceTree = "<group>"; };
 		AE27AA0C1E079895009DFD80 /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScreenShot.png; sourceTree = "<group>"; };
+		AE27AA0F1E0799B4009DFD80 /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScreenShot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		AE27A9C71E07827D009DFD80 = {
 			isa = PBXGroup;
 			children = (
+				AE27AA0E1E0799B4009DFD80 /* images */,
 				AE27A9D21E07827D009DFD80 /* LYZHeaderSortDemo */,
 				AE27A9EC1E07827D009DFD80 /* LYZHeaderSortDemoTests */,
 				AE27A9F71E07827D009DFD80 /* LYZHeaderSortDemoUITests */,
@@ -154,6 +157,14 @@
 				AE27AA081E0782BE009DFD80 /* HeadSortView.m */,
 			);
 			path = HeaderSortView;
+			sourceTree = "<group>";
+		};
+		AE27AA0E1E0799B4009DFD80 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				AE27AA0F1E0799B4009DFD80 /* ScreenShot.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +278,7 @@
 			files = (
 				AE27A9E31E07827D009DFD80 /* LaunchScreen.storyboard in Resources */,
 				AE27A9E01E07827D009DFD80 /* Assets.xcassets in Resources */,
+				AE27AA101E0799B4009DFD80 /* ScreenShot.png in Resources */,
 				AE27A9DE1E07827D009DFD80 /* Main.storyboard in Resources */,
 				AE27AA0D1E079895009DFD80 /* ScreenShot.png in Resources */,
 			);
