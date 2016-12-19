@@ -16,6 +16,7 @@
 		AE27A9EE1E07827D009DFD80 /* LYZHeaderSortDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE27A9ED1E07827D009DFD80 /* LYZHeaderSortDemoTests.m */; };
 		AE27A9F91E07827D009DFD80 /* LYZHeaderSortDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE27A9F81E07827D009DFD80 /* LYZHeaderSortDemoUITests.m */; };
 		AE27AA091E0782BE009DFD80 /* HeadSortView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE27AA081E0782BE009DFD80 /* HeadSortView.m */; };
+		AE27AA0B1E07915A009DFD80 /* Screen Shot.png in Resources */ = {isa = PBXBuildFile; fileRef = AE27AA0A1E07915A009DFD80 /* Screen Shot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		AE27A9FA1E07827D009DFD80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE27AA071E0782BE009DFD80 /* HeadSortView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadSortView.h; sourceTree = "<group>"; };
 		AE27AA081E0782BE009DFD80 /* HeadSortView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadSortView.m; sourceTree = "<group>"; };
+		AE27AA0A1E07915A009DFD80 /* Screen Shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		AE27A9D31E07827D009DFD80 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AE27AA0A1E07915A009DFD80 /* Screen Shot.png */,
 				AE27A9D41E07827D009DFD80 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -262,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE27AA0B1E07915A009DFD80 /* Screen Shot.png in Resources */,
 				AE27A9E31E07827D009DFD80 /* LaunchScreen.storyboard in Resources */,
 				AE27A9E01E07827D009DFD80 /* Assets.xcassets in Resources */,
 				AE27A9DE1E07827D009DFD80 /* Main.storyboard in Resources */,
@@ -530,6 +534,7 @@
 				AE27A9FF1E07827D009DFD80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE27AA001E07827D009DFD80 /* Build configuration list for PBXNativeTarget "LYZHeaderSortDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +543,7 @@
 				AE27AA021E07827D009DFD80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AE27AA031E07827D009DFD80 /* Build configuration list for PBXNativeTarget "LYZHeaderSortDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +552,7 @@
 				AE27AA051E07827D009DFD80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
