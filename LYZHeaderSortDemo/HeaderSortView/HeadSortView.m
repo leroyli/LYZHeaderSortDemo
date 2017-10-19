@@ -114,6 +114,10 @@ static CGFloat bottomViewHeight      = 2.0;
     [self setNeedsDisplay];//重新绘制
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+}
+
 
 
 

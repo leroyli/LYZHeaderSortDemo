@@ -19,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self setupViews];
 }
 
@@ -31,6 +33,7 @@
     
     HeadSortView *sortView = [[HeadSortView alloc] initWithFrame:CGRectMake(0, 100, self.view.bounds.size.width, 40) Delegate:self TitlesArray:titleArray SelectedIndex:0];
     [self.view addSubview:sortView];
+    
     
 }
 
