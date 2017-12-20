@@ -7,6 +7,7 @@
 //
 
 #import "HeadSortView.h"
+#import "Masonry.h"
 
 
 //RGB 宏定义
@@ -19,6 +20,11 @@
 #define MAIN_TEXTBLACKCOLOR RGBA_COLOR(80, 80, 80, 1)
 
 @interface HeadSortView ()
+{
+    CGFloat _buttonWidth;
+}
+
+@property (nonatomic, strong) UIView *bottomView;
 
 @end
 
@@ -26,39 +32,31 @@ static CGFloat bottomViewHeight      = 2.0;
 
 @implementation HeadSortView
 
-
+#pragma mark - init
 - (instancetype)initWithFrame:(CGRect)frame
                      Delegate:(id<HeadSortViewDelegate>)delegate
                   TitlesArray:(NSArray *)titlesArray
-                SelectedIndex:(NSInteger)selectedIndex
-{
+                SelectedIndex:(NSInteger)selectedIndex {
     self = [super initWithFrame:frame];
     
-    if (self)
-    {
+    if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.delegate        = delegate;
         self.titlesArray     = titlesArray;
         self.selectedIndex   = selectedIndex;
     }
-    
     return self;
-    
 }
 
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     [self setupViews];
 }
 
-- (void)setupViews
-{
-    float buttonWidth = self.bounds.size.width/self.titlesArray.count;
+#pragma mark - configSubViews
+- (void)setupViews {
+    if (self.titlesArray.count == 0) {return;}
     
-    if (self.titlesArray.count == 0)
-    {
-        return;
-    }
+    _buttonWidth = self.bounds.size.width/self.titlesArray.count;
     
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - 0.5, self.bounds.size.width, 0.5)];
     lineView.backgroundColor = RGBAcolor(227, 228, 229, 1);
@@ -67,55 +65,72 @@ static CGFloat bottomViewHeight      = 2.0;
     [self.titlesArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
         UIButton *button          = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame              = CGRectMake(idx * buttonWidth, 0, buttonWidth, self.bounds.size.height - bottomViewHeight);
+        button.frame              = CGRectMake(idx * _buttonWidth, 0, _buttonWidth, self.bounds.size.height - bottomViewHeight);
         [button setTitle:self.titlesArray[idx] forState:UIControlStateNormal];
         button.backgroundColor    = RGBAcolor(255, 255, 255, 1);
         button.titleLabel.font    = MAIN_FONT_HEITI(15);
         
-        if (self.selectedIndex == idx)
-        {
+        if (self.selectedIndex == idx) {
+            
             [button setTitleColor:MAIN_BLUECOLOR forState:UIControlStateNormal];
-
-            UIView *bottomView         = [[UIView alloc] initWithFrame:CGRectMake(idx * buttonWidth, self.bounds.size.height - bottomViewHeight, buttonWidth, bottomViewHeight)];
-            bottomView.backgroundColor = MAIN_BLUECOLOR;
-            [self addSubview:bottomView];
-        }
-        else
-        {
+            self.bottomView.frame = CGRectMake(idx * _buttonWidth, self.bounds.size.height - bottomViewHeight, _buttonWidth, bottomViewHeight);
+            [self addSubview:_bottomView];
+            
+        } else {
+            
             [button setTitleColor:MAIN_TEXTBLACKCOLOR forState:UIControlStateNormal];
+            
         }
         
         button.tag = idx;
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
-        
     }];
-    
 }
 
-- (void)buttonAction:(UIButton *)sender
-{
+#pragma mark - buttonAction
+- (void)buttonAction:(UIButton *)sender {
     self.selectedIndex = sender.tag;
-    [self reload];
+    [self reloadWithIndex:self.selectedIndex];
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(headSortView:didSelectItemAtIndex:)])
-    {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(headSortView:didSelectItemAtIndex:)]) {
         [self.delegate headSortView:self didSelectItemAtIndex:self.selectedIndex];
     }
-    
 }
 
--(void)reload
-{
-    for(UIView *view in [self subviews])
-    {
-        [view removeFromSuperview];
+#pragma mark - reload
+- (void)reloadWithIndex:(NSInteger)index {
+    for (UIButton *v in self.subviews) {
+        if (v) {
+            if ([v isKindOfClass:[UIButton class]]) {
+                if (v.tag == self.selectedIndex) {
+                    [v setTitleColor:MAIN_BLUECOLOR forState:UIControlStateNormal];
+                    self.bottomView.frame = CGRectMake(self.selectedIndex * _buttonWidth, self.bounds.size.height - bottomViewHeight, _buttonWidth, bottomViewHeight);
+                } else {
+                    [v setTitleColor:MAIN_TEXTBLACKCOLOR forState:UIControlStateNormal];
+                }
+            }
+        }
     }
-    [self setNeedsDisplay];//重新绘制
 }
 
+#pragma mark - layoutSubviews
 - (void)layoutSubviews {
     [super layoutSubviews];
+    for(UIView *view in [self subviews]) {
+        [view removeFromSuperview];
+    }
+    [self setupViews];
+}
+
+#pragma mark - getter
+- (UIView *)bottomView {
+    if (!_bottomView) {
+        _bottomView = [[UIView alloc] init];
+        _bottomView.backgroundColor = MAIN_BLUECOLOR;
+        
+    }
+    return _bottomView;
 }
 
 

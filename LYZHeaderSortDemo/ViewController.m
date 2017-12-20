@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "HeadSortView.h"
+#import "Masonry.h"
 
 @interface ViewController ()<HeadSortViewDelegate>
 
@@ -33,6 +34,13 @@
     
     HeadSortView *sortView = [[HeadSortView alloc] initWithFrame:CGRectMake(0, 100, self.view.bounds.size.width, 40) Delegate:self TitlesArray:titleArray SelectedIndex:0];
     [self.view addSubview:sortView];
+    
+    [sortView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view);
+        make.top.equalTo(self.view.mas_top).offset(100);
+        make.right.equalTo(self.view);
+        make.height.mas_equalTo(40);
+    }];
     
     
 }
